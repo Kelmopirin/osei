@@ -7,17 +7,19 @@ def post_booking(config, rendelo_id, sportolo_id):
     resp = requests.post(url, headers=headers, data=payload)
     return resp
 
-# load config from JSON
-with open("config.json", "r", encoding="utf-8") as f:
-    config = json.load(f)
+
+if __name__ == "__main__":
+    # load config from JSON
+    with open("config.json", "r", encoding="utf-8") as f:
+        config = json.load(f)
 
 
-rendelo_id = 13
-sportolo_id = 306048
+    rendelo_id = 13
+    sportolo_id = 306048
 
-# perform the POST with the explicit body
-resp = post_booking(config, rendelo_id, sportolo_id)
+    # perform the POST with the explicit body
+    resp = post_booking(config, rendelo_id, sportolo_id)
 
-print("status", resp.status_code)
-print(resp.text)
+    print("status", resp.status_code)
+    print(resp.text)
 
